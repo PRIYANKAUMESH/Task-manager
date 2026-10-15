@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Personal Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">✓</span>
+                <span>TaskFlow</span>
+            </a>
+
+            <p class="nav-label">WORKSPACE</p>
+
+            <nav class="navigation">
+                <button class="nav-item active" data-filter="all">
+                    <span>▦</span> All Tasks
+                    <span class="nav-count" id="allCount">0</span>
+                </button>
+
+                <button class="nav-item" data-filter="pending">
+                    <span>◷</span> Pending
+                    <span class="nav-count" id="pendingCount">0</span>
+                </button>
+
+                <button class="nav-item" data-filter="completed">
+                    <span>✓</span> Completed
+                    <span class="nav-count" id="completedCount">0</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="quote-icon">✦</div>
+                <h3>Small steps, big results.</h3>
+                <p>Stay focused and make today count.</p>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                    <h1>My Tasks <span class="wave">✦</span></h1>
+                    <p class="subtitle">Plan your day. Get things done.</p>
+                </div>
+
+                <div class="date-badge">
+                    <span>📅</span>
+                    <span id="todayDate"></span>
+                </div>
+            </header>
+
+            <!-- Statistics -->
+            <section class="stats-grid">
+
+                <article class="stat-card total-card">
+                    <div class="stat-top">
+                        <span>Total Tasks</span>
+                        <span class="stat-icon purple">▦</span>
+                    </div>
+                    <h2 id="totalTasks">0</h2>
+                    <p>Tasks in your workspace</p>
+                </article>
+
+                <article class="stat-card pending-card">
+                    <div class="stat-top">
+                        <span>Pending</span>
+                        <span class="stat-icon orange">◷</span>
+                    </div>
+                    <h2 id="pendingTasks">0</h2>
+                    <p>Ready to be completed</p>
+                </article>
+
+                <article class="stat-card completed-card">
+                    <div class="stat-top">
+                        <span>Completed</span>
+                        <span class="stat-icon green">✓</span>
+                    </div>
+                    <h2 id="completedTasks">0</h2>
+                    <p>Look at your progress!</p>
+                </article>
+
+            </section>
+
+            <!-- Progress -->
+            <section class="progress-card">
+                <div class="progress-heading">
+                    <div>
+                        <h3>Your progress</h3>
+                        <p>Every completed task is a win.</p>
+                    </div>
+                    <strong id="progressPercent">0%</strong>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </section>
+
+            <!-- Add task -->
+            <section class="add-card">
+                <div class="section-heading">
+                    <div>
+                        <h2>Create a task</h2>
+                        <p>What would you like to accomplish?</p>
+                    </div>
+                    <span class="plus-decoration">✚</span>
+                </div>
+
+                <form id="taskForm">
+                    <label for="taskInput">Task description</label>
+
+                    <div class="input-row">
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="e.g. Practice JavaScript for 30 minutes"
+                            maxlength="200"
+                            required
+                        >
+
+                        <button type="submit" class="add-button">
+                            <span>+</span> Add Task
+                        </button>
+                    </div>
+
+                    <p class="form-hint">Tip: Break big goals into small tasks.</p>
+                </form>
+            </section>
+
+            <!-- Task list -->
+            <section class="task-section">
+
+                <div class="task-heading">
+                    <div>
+                        <h2 id="listTitle">All Tasks</h2>
+                        <p id="listSubtitle">Everything you need to do.</p>
+                    </div>
+
+                    <span class="task-total" id="visibleCount">0 tasks</span>
+                </div>
+
+                <div class="task-list" id="taskList"></div>
+
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">✦</div>
+                    <h3 id="emptyTitle">A fresh start!</h3>
+                    <p id="emptyMessage">Add your first task and make today productive.</p>
+                </div>
+
+            </section>
+
+            <footer>
+                Made for your goals, one task at a time. <span>♥</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
